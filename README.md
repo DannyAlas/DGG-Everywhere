@@ -1,0 +1,1 @@
+# Replaces the native Youtube live chat with Destiny.gg chat
