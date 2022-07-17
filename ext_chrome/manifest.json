@@ -1,6 +1,6 @@
 {
     "name": "DGG Chat for YouTube",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 3,
     "description": "Click the extension to replace Youtube chat with Destiny.gg chat. Reload the page to return to the Youtube chat.",
     "icons": {
@@ -8,11 +8,6 @@
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
     },
-    "content_scripts": [{
-        "matches": ["http://www.youtube.com/*"],
-        "js": ["src/bg/content.js"],
-        "run_at": "document_start"
-    }],
     "default_locale": "en",
     "action": {
         "default_title": "DGG Chat for YouTube™",
@@ -21,9 +16,6 @@
     "permissions": [
         "scripting",
         "activeTab"
-    ],
-    "host_permissions": [
-        "*://*.youtube.com/*"
     ],
     "background": {
         "service_worker": "src/bg/background.js"
