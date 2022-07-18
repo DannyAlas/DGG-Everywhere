@@ -1,0 +1,26 @@
+{
+    "name": "Chrome Extension MV3",
+    "description": "Building a Chrome Extension MV3",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["js/jquery/jquery.min.js"]
+    }],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "scripting"
+    ]
+}
