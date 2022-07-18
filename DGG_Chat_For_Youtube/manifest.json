@@ -1,6 +1,6 @@
 {
-    "name": "Chrome Extension MV3",
-    "description": "Building a Chrome Extension MV3",
+    "name": "DGG Chat for YouTube",
+    "description": "Use the extension to replace Youtube chat with Destiny.gg chat. Reload the page to return to the Youtube chat.",
     "version": "0.1.0",
     "manifest_version": 3,
     "icons": {
@@ -9,10 +9,10 @@
         "128": "icons/icon128.png"
     },
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "src/background.js"
     },
     "content_scripts": [{
-        "matches": ["<all_urls>"],
+        "matches": ["*://*.youtube.com/*"],
         "js": ["js/jquery/jquery.min.js"]
     }],
     "action": {
