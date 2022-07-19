@@ -13,7 +13,8 @@
     },
     "content_scripts": [{
         "matches": ["*://*.youtube.com/*"],
-        "js": ["js/jquery/jquery.min.js"]
+        "js": ["js/jquery/jquery.min.js", "src/content.js"],
+        "run_at": "document_start"
     }],
     "action": {
         "default_popup": "popup.html"

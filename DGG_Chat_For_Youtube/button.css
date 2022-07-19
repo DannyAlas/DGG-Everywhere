@@ -2,6 +2,14 @@ body {
     background: linear-gradient(to right, #30394A, #849EB5);
 }
 
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-ThinItalic-webfont.eot');
+    src: url('Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'), url('Roboto-ThinItalic-webfont.woff') format('woff'), url('Roboto-ThinItalic-webfont.ttf') format('truetype'), url('Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
+
 .options {
     display: flex;
     justify-content: center;
@@ -19,7 +27,6 @@ body {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: normal;
