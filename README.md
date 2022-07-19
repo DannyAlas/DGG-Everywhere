@@ -5,7 +5,7 @@
 >
 > **License**: Under Attribution-NonCommercial-NoDerivs 3.0 License, all images are sourced from [Destiny.gg](https://www.destiny.gg/), no derivatives have been created, and this is solely for non-commercial purposes.
 ---
-![](https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/demo1.gif)
+![](https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif)
 ---
 ### Installation
 >**Note**: Latest pre-release is not yet in chrome store. 
