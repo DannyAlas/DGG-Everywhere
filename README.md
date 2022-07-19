@@ -1,4 +1,5 @@
 # A lightweight extension that replaces the native Youtube Live chat with an embeded destiny.gg chat.
+![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white) ![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white) ![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=Microsoft-edge&logoColor=white) 
 > 
 > **Note**: This is in no way affiliated with Destiny.gg
 >
