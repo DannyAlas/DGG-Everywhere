@@ -3,6 +3,8 @@ function isDGGLoaded() {
     return src == "https://www.destiny.gg/embed/chat"
 }
 
+
+
 function loadDGG() {
     chrome.storage.sync.get("checkbox", function(result) {
         if (result.checkbox == true && isDGGLoaded() == false) {
