@@ -1,8 +1,9 @@
 {
     "name": "DGG Chat for YouTube",
-    "description": "Use the extension to replace Youtube chat with Destiny.gg chat. Reload the page to return to the Youtube chat.",
+    "description": "Use the extension to toggle between the Youtube Live chat and the Destiny.gg chat.",
     "version": "0.1.0",
     "manifest_version": 3,
+    "default_locale": "en",
     "icons": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
