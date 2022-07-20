@@ -24,3 +24,5 @@ For versions not in chrome store:
 2. Open the extensions page on edge by either choosing the three dots at the top right of your browser and selecting Extensions or typing `edge://extensions` into the url.
 3. On the extensions page, turn on Developer mode using the toggle at the bottom left of the page.
 4. In the top right select "Load Unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
+
+***Firefox Coming Soon***
