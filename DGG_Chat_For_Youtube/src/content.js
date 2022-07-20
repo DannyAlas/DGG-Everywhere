@@ -21,8 +21,6 @@ function loadDGG() {
     });
 };
 
-function doLoad1() { chrome.storage.sync.get("checkbox", function(result) { console.log("aaaaaaaaaaaaaaaaa " + result.checkbox) }) }
-
 // I FOR THE LIFE OF ME CANNOT GET THIS TO WORK WITHOUT A DELAY! 
 // Checking the DOM fully loads doesn't work.
 
