@@ -3,7 +3,7 @@
 > 
 > **Note**: This is in no way affiliated with Destiny.gg
 >
-> **License**: Under Attribution-NonCommercial-NoDerivs 3.0 License, all images are sourced from [Destiny.gg](https://www.destiny.gg/), no derivatives have been created, and this is solely for non-commercial purposes.
+> **License**: [LICENSE](https://github.com/DannyAlas/DGG-For-Youtube/blob/main/LICENSE)
 ---
 <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif"/></p>
 
