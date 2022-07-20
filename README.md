@@ -4,9 +4,8 @@
 > **Note**: This is in no way affiliated with Destiny.gg
 >
 > **License**: [LICENSE](https://github.com/DannyAlas/DGG-For-Youtube/blob/main/LICENSE)
-
+---
 ## [Chrome Download](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0)
-
 ---
 <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif"/></p>
 
