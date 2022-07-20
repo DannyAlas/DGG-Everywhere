@@ -8,10 +8,9 @@
 <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif"/></p>
 
 ---
-### Installation
->**Note**: Latest pre-release is not yet in chrome store. 
+>**Note**: Releases are not yet in published in extension stores. When available they will be shown here.
 
-For versions not in chrome store:
+### Manual Installation
 - [Download the latest release here](https://github.com/DannyAlas/DGG-For-Youtube/releases)
 #### Steps For Chrome
 1. Downbload and unzip the latest release of **DGG_Chat_For_Youtube.zip** 
