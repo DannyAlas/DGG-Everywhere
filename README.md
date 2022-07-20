@@ -1,18 +1,28 @@
 # A lightweight extension that replaces the native Youtube Live chat with an embeded destiny.gg chat.
-> 
+[![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) ![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white) ![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=Microsoft-edge&logoColor=white) 
+
 > **Note**: This is in no way affiliated with Destiny.gg
 >
-> **License**: Under Attribution-NonCommercial-NoDerivs 3.0 License, all images are sourced from [Destiny.gg](https://www.destiny.gg/), no derivatives have been created, and this is solely for non-commercial purposes.
+> **License**: [LICENSE](https://github.com/DannyAlas/DGG-For-Youtube/blob/main/LICENSE)
 ---
-![](https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/demo1.gif)
----
-### Installation
->**Note**: Latest pre-release is not yet in chrome store. 
+## [Chrome Download](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0)
 
-For versions not in chrome store:
+<p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif"/></p>
+
+>**Note**: Some releases are not yet in published in extension stores. When available they will be shown above.
+
+### Manual Installation
 - [Download the latest release here](https://github.com/DannyAlas/DGG-For-Youtube/releases)
-#### Steps
-1. Unzip **DGG_Chat_For_Youtube.zip** 
-3. Once unzipped, in Chrome navigate to **More**![More](https://lh3.googleusercontent.com/E2q6Vj9j60Dw0Z6NZFEx5vSB9yoZJp7C8suuvQXVA_2weMCXstGD7JEvNrzX3wuQrPtL=w36-h36)  ![and then](https://lh3.googleusercontent.com/QbWcYKta5vh_4-OgUeFmK-JOB0YgLLoGh69P478nE6mKdfpWQniiBabjF7FVoCVXI0g=h36)  **More tools**  ![and then](https://lh3.googleusercontent.com/QbWcYKta5vh_4-OgUeFmK-JOB0YgLLoGh69P478nE6mKdfpWQniiBabjF7FVoCVXI0g=h36)  **Extensions**
-4. In the top right, ensure "Developer mode" is enabled
-5. In the top left click "Load unpacked" and navigate to the folder you just unzipped
+#### Steps For Chrome
+1. Downbload and unzip the latest release of **DGG_Chat_For_Youtube.zip** 
+2. Open the extensions page on Chrome by either choosing the three dots at the top right of your browser and selecting More tools > Extensions or by typing `chrome://extensions` into the url.
+3. On the extensions page, ensure "Developer mode" is enabled using the toggle at the top right of the page.
+4. In the top left click "Load unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
+
+#### Steps for Edge
+1. Downbload and unzip the latest release of **DGG_Chat_For_Youtube.zip**
+2. Open the extensions page on edge by either choosing the three dots at the top right of your browser and selecting Extensions or typing `edge://extensions` into the url.
+3. On the extensions page, turn on Developer mode using the toggle at the bottom left of the page.
+4. In the top right select "Load Unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
+
+***Firefox Coming Soon***
