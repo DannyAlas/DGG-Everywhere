@@ -5,7 +5,7 @@
 >
 > **License**: [LICENSE](https://github.com/DannyAlas/DGG-For-Youtube/blob/main/LICENSE)
 ---
-## [Chrome Download |](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) [ Edge Download](https://microsoftedge.microsoft.com/addons/detail/dgg-chat-for-youtube/lmnhgbjkjbmkeolckldllpmjmbjmgbjn)
+## [Chrome Store |](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) [ Edge Store](https://microsoftedge.microsoft.com/addons/detail/dgg-chat-for-youtube/lmnhgbjkjbmkeolckldllpmjmbjmgbjn)
 
 <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif"/></p>
 
