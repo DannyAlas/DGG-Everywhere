@@ -6,7 +6,7 @@ function isDGGLoaded() {
 
 
 function loadDGG() {
-    chrome.storage.sync.get("checkbox", function(result) {
+    browser.storage.sync.get("checkbox", function(result) {
         if (result.checkbox == true && isDGGLoaded() == false) {
             console.log("DGG WILL BE LOADED");
             dggChat = $("ytd-live-chat-frame")
@@ -21,7 +21,7 @@ function loadDGG() {
     });
 };
 
-function doLoad1() { chrome.storage.sync.get("checkbox", function(result) { console.log("aaaaaaaaaaaaaaaaa " + result.checkbox) }) }
+function doLoad1() { browser.storage.sync.get("checkbox", function(result) { console.log("aaaaaaaaaaaaaaaaa " + result.checkbox) }) }
 
 // I FOR THE LIFE OF ME CANNOT GET THIS TO WORK WITHOUT A DELAY! 
 // Checking the DOM fully loads doesn't work.

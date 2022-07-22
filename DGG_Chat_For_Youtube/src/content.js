@@ -26,6 +26,6 @@ function loadDGG() {
 
 document.onreadystatechange = function() {
     if (document.readyState === 'complete') {
-        setTimeout(() => { loadDGG() }, 500);;
+        setTimeout(() => { loadDGG() }, 500);
     }
 }

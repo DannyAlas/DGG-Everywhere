@@ -1,5 +1,5 @@
 const checkbox = document.querySelector("input[name=checkbox]");
-chrome.storage.sync.get(["checkbox"], async function(result) {
+browser.storage.sync.get(["checkbox"], async function(result) {
     if (result.checkbox != null) {
         document.getElementById("checkbox").checked = result.checkbox
     } else { document.getElementById("checkbox").checked = false }
@@ -7,13 +7,13 @@ chrome.storage.sync.get(["checkbox"], async function(result) {
 
 checkbox.addEventListener("change", async(e) => {
     if (e.target.checked) {
-        chrome.storage.sync.set({ "checkbox": true });
-        let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        browser.storage.sync.set({ "checkbox": true });
+        let [tab] = await browser.tabs.query({ active: true, currentWindow: true });
 
-        chrome.scripting.executeScript({
+        browser.scripting.executeScript({
             target: { tabId: tab.id },
             function: async() => {
-                chrome.storage.sync.set({
+                browser.storage.sync.set({
                     "src": $('#chatframe').attr('src'),
                     function() { console.log("src is set to" + $('#chatframe').attr('src')) }
                 });
@@ -28,9 +28,9 @@ checkbox.addEventListener("change", async(e) => {
             }
         });
     } else {
-        chrome.storage.sync.set({ "checkbox": false });
-        let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-        chrome.scripting.executeScript({
+        browser.storage.sync.set({ "checkbox": false });
+        let [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+        browser.scripting.executeScript({
             target: { tabId: tab.id },
             function: async() => {
                 dggChat = $("ytd-live-chat-frame")
@@ -39,7 +39,7 @@ checkbox.addEventListener("change", async(e) => {
                     "flex-direction": "column",
                     "-webkit-flex-direction": "column",
                 });
-                chrome.storage.sync.get(["src"], function(result) {
+                browser.storage.sync.get(["src"], function(result) {
                     id = result.src
                     dggChat.prepend(`<!--css-build:shady--><iframe frameborder="0" scrolling="no" id="chatframe" class="style-scope ytd-live-chat-frame" src="${id}"></iframe>
                 <dom-if class="style-scope ytd-live-chat-frame"><template is="dom-if"></template></dom-if>
@@ -52,6 +52,6 @@ checkbox.addEventListener("change", async(e) => {
 
 $('body').on('click', 'a[target="popout"]', function(x) {
     x.preventDefault();
-    chrome.tabs.create({ url: $(this).prop('href'), active: false });
+    browser.tabs.create({ url: $(this).prop('href'), active: false });
     return false;
 });

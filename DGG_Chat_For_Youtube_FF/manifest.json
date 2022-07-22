@@ -17,7 +17,7 @@
         "js": ["js/jquery/jquery.min.js", "src/content.js"],
         "run_at": "document_start"
     }],
-    "action": {
+    "browser_action": {
         "default_popup": "popup.html"
     },
     "permissions": [
