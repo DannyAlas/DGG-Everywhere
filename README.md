@@ -1,11 +1,11 @@
 # A lightweight extension that replaces the native Youtube Live chat with an embeded destiny.gg chat.
-[![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) ![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white) ![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=Microsoft-edge&logoColor=white) 
+[![Google Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) ![Firefox](https://img.shields.io/badge/Firefox-FF7139?style=for-the-badge&logo=Firefox-Browser&logoColor=white) [![Edge](https://img.shields.io/badge/Edge-0078D7?style=for-the-badge&logo=Microsoft-edge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/dgg-chat-for-youtube/lmnhgbjkjbmkeolckldllpmjmbjmgbjn)
 
 > **Note**: This is in no way affiliated with Destiny.gg
 >
 > **License**: [LICENSE](https://github.com/DannyAlas/DGG-For-Youtube/blob/main/LICENSE)
 ---
-## [Chrome Download](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0)
+## [Chrome Download |](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) [ Edge Download](https://microsoftedge.microsoft.com/addons/detail/dgg-chat-for-youtube/lmnhgbjkjbmkeolckldllpmjmbjmgbjn)
 
 <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif"/></p>
 
