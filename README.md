@@ -7,7 +7,7 @@
 ---
 ## [Chrome Store](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) | [Edge Store](https://microsoftedge.microsoft.com/addons/detail/dgg-chat-for-youtube/lmnhgbjkjbmkeolckldllpmjmbjmgbjn)
 
-<p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/demo.gif"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/demo.gif"/></p>
 
 >**Note**: Some releases are not yet in published in extension stores. When available they will be shown above.
 
