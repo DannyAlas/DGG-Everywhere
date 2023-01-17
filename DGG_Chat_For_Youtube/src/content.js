@@ -42,11 +42,26 @@ function loadDGGYT() {
 
 document.onreadystatechange = function() {
     if (document.readyState === 'complete') {
-        try{
+
+        try {
             if (window.location.href.indexOf('youtube.com') > -1) {
-                setTimeout(() => { loadDGGYT() }, 500);
+                ObserverYT = new MutationObserver((mutationList, ObserverYT) => {
+                    if ($("ytd-live-chat-frame").length && $("#chatframe").length) {
+                        loadDGGYT()
+                        ObserverYT.disconnect();
+                    }}
+                );
+                ObserverYT.observe($('ytd-app')[0], {childList: true, subtree: true});
             } else if (window.location.href.indexOf('twitch.tv') > -1) {
-                setTimeout(() => { loadDGGTW() }, 500);
+
+                observerTW = new MutationObserver((mutationList, observer) => {
+                    if ($(`div[class*=channel-root__right-column]`).length) {
+                        loadDGGTW();
+                        observerTW.disconnect();
+                    }}
+                );
+                // this works for the most part but can have funky AdBlock behavior, not sure why yet
+                observerTW.observe($(`div[class*=channel-root__right-column]`)[0], {childList: true, subtree: true});
             }
         } catch (e) {
             console.log(e);
