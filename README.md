@@ -16,7 +16,7 @@
 
 # Installation
 
-Click the [badge above](https://github.com/DannyAlas/DGG-For-Youtube#:~:text=google%20chrome%20mozilla%20firefox%20microsoft%20edge) for your desired browser!
+Click the [badge under the title](https://github.com/DannyAlas/DGG-For-Youtube#:~:text=replaces%20live%20chats%20with%20dgg%20chat.) for your desired browser!
 
 ## Manual Installation
 
