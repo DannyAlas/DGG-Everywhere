@@ -22,19 +22,19 @@ Click the [badge above](https://github.com/DannyAlas/DGG-For-Youtube/edit/main/R
 
 - [Download the latest release here](https://github.com/DannyAlas/DGG-For-Youtube/releases)
 
-#### Steps For Chrome
+#### Steps For Chrome:
 1. Download and unzip the latest release of **DGG_Chat_For_Youtube.zip** 
 2. Open the extensions page on Chrome by either choosing the three dots at the top right of your browser and selecting More tools > Extensions | or by typing `chrome://extensions` into the url.
 3. On the extensions page, ensure "Developer mode" is enabled using the toggle at the top right of the page.
 4. In the top left click "Load unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
 
-#### Steps for Edge
+#### Steps for Edge:
 1. Download and unzip the latest release of **DGG_Chat_For_Youtube.zip**
 2. Open the extensions page on edge by either choosing the three dots at the top right of your browser and selecting Extensions or typing `edge://extensions` into the url.
 3. On the extensions page, turn on Developer mode using the toggle at the bottom left of the page.
 4. In the top right select "Load Unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
 
-#### Steps for Firefox
+#### Steps for Firefox:
 1. Download and unzip the latest release of **DGG_Chat_For_Youtube_FF.zip** 
 > **Note**: The `FF` in the name! It is a different file from the Chrome and Edge versions!
 2. Click the menu button Fx89menuButton, click Add-ons and themes and select Extensions.
