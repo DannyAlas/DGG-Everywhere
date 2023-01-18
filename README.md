@@ -2,7 +2,7 @@
 
 # Replaces Live Chats With DGG Chat.
 
-[![Google Chrome](https://img.shields.io/chrome-web-store/v/ncbnabljhfmaedpkdgcoembdcpdbnkma?color=blue&label=Download%20Chrome&logo=GoogleChrome&logoColor=white&style=for-the-badge)](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) [![Firefox](https://img.shields.io/amo/v/dgg-chat-for-youtube?label=Download%20Firefox&logo=Firefox-Browser&logoColor=white&style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/dgg-chat-for-youtube/) [![Edge](https://img.shields.io/badge/Download%20Edge-v1.0.3-blue?style=for-the-badge&logo=Microsoft-edge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/dgg-chat-for-youtube/lmnhgbjkjbmkeolckldllpmjmbjmgbjn)
+[![Google Chrome](https://img.shields.io/chrome-web-store/v/ncbnabljhfmaedpkdgcoembdcpdbnkma?color=blue&label=Download%20Chrome&logo=GoogleChrome&logoColor=white&style=for-the-badge)](https://chrome.google.com/webstore/detail/dgg-chat-for-youtube/ncbnabljhfmaedpkdgcoembdcpdbnkma?hl=en&authuser=0) [![Mozilla Firefox](https://img.shields.io/amo/v/dgg-chat-for-youtube?label=Download%20Firefox&logo=Firefox-Browser&logoColor=white&style=for-the-badge)](https://addons.mozilla.org/en-US/firefox/addon/dgg-chat-for-youtube/) [![Microsoft Edge](https://img.shields.io/badge/Download%20Edge-v1.0.3-blue?style=for-the-badge&logo=Microsoft-edge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/dgg-chat-for-youtube/lmnhgbjkjbmkeolckldllpmjmbjmgbjn)
 
 <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/demo.gif"/></p>
 
@@ -16,7 +16,7 @@
 
 # Installation
 
-Click the [badge above](https://github.com/DannyAlas/DGG-For-Youtube#replaces-live-chats-with-dgg-chat) for your desired broser
+Click the [badge above](https://github.com/DannyAlas/DGG-For-Youtube#:~:text=google%20chrome%20mozilla%20firefox%20microsoft%20edge) for your desired browser!
 
 ## Manual Installation
 
