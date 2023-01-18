@@ -16,7 +16,7 @@
 
 # Installation
 
-Click the [badge above](https://github.com/DannyAlas/DGG-For-Youtube/edit/main/README.md#replaces-live-chats-with-dgg-chat) for your desired broser
+Click the [badge above](https://github.com/DannyAlas/DGG-For-Youtube#replaces-live-chats-with-dgg-chat) for your desired broser
 
 ## Manual Installation
 
