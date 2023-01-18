@@ -23,17 +23,9 @@ jobs:
           recursive: false
           dest: DGG_Everywhere_FF.zip
 
-      - uses: actions/checkout@v1
-      - name: "find env"
-        run: |
-          set | grep GITHUB_ | grep -v GITHUB_TOKEN
-          zip -r pkg.zip *.md
-          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
-          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
-      
+      - uses: actions/create-release@v1
       - name: "Create Pre-Release"
         id: create_pre_release
-        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -45,12 +37,23 @@ jobs:
           draft: true
           prerelease: true
 
-      - name: "Uplad Files"
+      - uses: actions/checkout@v1
+      - name: "find env"
+        run: |
+          set | grep GITHUB_ | grep -v GITHUB_TOKEN
+          zip -r pkg.zip *.md
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
+      
       - uses: xresloader/upload-to-github-release@v1
+      - name: "Uplad Files"
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           file: DGG_Everywhere.zip;DGG_Everywhere_FF.zip
+          overwrite: true
+          draft: true
+          prerelease: true
        
        
       
