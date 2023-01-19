@@ -12,8 +12,9 @@ jobs:
   upload-release-files:
     runs-on: ubuntu-latest
     steps:
-      - name: "zip chrome files"
-        uses: vimtor/action-zip@v1
+      - uses: actions/checkout@v2
+      - uses: vimtor/action-zip@v1
+        name: "zip chrome files"
         with:
           files: DGG_Everywhere/
           recursive: true
@@ -22,13 +23,19 @@ jobs:
         uses: vimtor/action-zip@v1
         with:
           files: DGG_Everywhere_FF/
-          recursive: false
+          recursive: true
           dest: DGG_Everywhere_FF.zip
+      
+      - uses: actions/upload-artifact@v1
+        with:
+          name: my-artifact
+          path: ${{ github.workspace }}/result.zip
 
       - uses: actions/checkout@v1
       - name: "Archive Release"
         run: |
           set | grep GITHUB_ | grep -v GITHUB_TOKEN
+          ls
           zip -r source.zip *
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
