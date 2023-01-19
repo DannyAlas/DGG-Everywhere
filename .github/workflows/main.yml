@@ -9,61 +9,73 @@ on:
 
 jobs:
 
-  upload-release-files:
+  create-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: vimtor/action-zip@v1
-        name: "zip chrome files"
+      - name: Build Release
+        id: create_release
+        uses: mikepenz/release-changelog-builder-action@v3{latest-release}
         with:
-          files: DGG_Everywhere/
-          recursive: true
-          dest: DGG_Everywhere.zip
-      - name: "zip firefox Files"
-        uses: vimtor/action-zip@v1
-        with:
-          files: DGG_Everywhere_FF/
-          recursive: true
-          dest: DGG_Everywhere_FF.zip
-      
-      - uses: actions/upload-artifact@v1
-        with:
-          name: artifact
-          path: ${{ github.workspace }}
-
-      - uses: actions/checkout@v1
-      - name: "Archive Release"
-        run: |
-          set | grep GITHUB_ | grep -v GITHUB_TOKEN
-          ls
-          zip -r source.zip *
-          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
-          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
-        
-      - name: Create Pre-Release
-        uses: actions/create-release@v1
-        id: create_pre_release
+          fromTag: "0.1.1"
+          configurationJson: |
+            {
+              "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
+              "categories": [
+                {
+                  "title": "Features",
+                  "labels": [
+                    "feature"
+                  ]
+                },
+                {
+                  "title": "Bug Fixes",
+                  "labels": [
+                    "bug"
+                  ]
+                },
+                {
+                  "title": "Documentation",
+                  "labels": [
+                    "documentation"
+                  ]
+                },
+                {
+                  "title": "Maintenance",
+                  "labels": [
+                    "maintenance"
+                  ]
+                }
+              ]
+            }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+      - name: Create Release
+        id: create_release
+        uses: mikepenz/action-gh-release@v0.2.0-a03
         with:
-          tag_name: "Pre-release"
-          release_name: Pre-release Preview
-          body: |
-            Latest Preview for Pre-release from ${{ github.sha }}
-          allowUpdates: true
-          prerelease: true
+          body: ${{steps.github_release.outputs.changelog}}
+        
+      - uses: actions/checkout@v1
+      - name: "Create Release Files"
+        run: |
+          set | grep GITHUB_ | grep -v GITHUB_TOKEN
+          zip -r source.zip *
+          zip -r DGG_Everywhere.zip DGG_Everywhere
+          zip -r DGG_Everywhere_FF.zip DGG_Everywhere_FF
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
 
       - name: "Upload Release Files"
         uses: xresloader/upload-to-github-release@v1
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          release_id: ${{ steps.create_release.outputs.id }}
           file: 'DGG_Everywhere.zip;DGG_Everywhere_FF.zip'
-          release_id: ${{ steps.create_pre_release.outputs.id }}
+          branches: 'main'
           overwrite: true
           draft: true
           prerelease: true
-       
-       
       
     
