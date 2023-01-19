@@ -1,0 +1,33 @@
+name: "tagged-release"
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
+    steps:
+
+      - uses: actions/checkout@v1
+      - name: "Create Release Files"
+        run: |
+          set | grep GITHUB_ | grep -v GITHUB_TOKEN
+          zip -r source.zip *
+          zip -r DGG_Everywhere.zip DGG_Everywhere
+          zip -r DGG_Everywhere_FF.zip DGG_Everywhere_FF
+          ls
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
+      
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          automatic_release_tag: "latest"
+          files: |
+            source.zip
+            DGG_Everywhere.zip
+            DGG_Everywhere_FF.zip
