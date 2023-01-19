@@ -1,0 +1,62 @@
+name: Create Release Files
+
+on: 
+  push:
+    branches:
+      - 'main'
+    tags:
+      - '*'
+
+jobs:
+
+  upload-release-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "zip chrome files"
+        uses: vimtor/action-zip@v1
+        with:
+          files: DGG_Everywhere/
+          recursive: true
+          dest: DGG_Everywhere.zip
+      - name: "zip firefox Files"
+        uses: vimtor/action-zip@v1
+        with:
+          files: DGG_Everywhere_FF/
+          recursive: false
+          dest: DGG_Everywhere_FF.zip
+
+      - uses: actions/checkout@v1
+      - name: "Archive Release"
+        run: |
+          set | grep GITHUB_ | grep -v GITHUB_TOKEN
+          zip -r source.zip *
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
+          echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
+        
+      - name: Create Pre-Release
+        uses: actions/create-release@v1
+        id: create_pre_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: "Pre-release"
+          release_name: Pre-release Preview
+          body: |
+            Latest Preview for Pre-release from ${{ github.sha }}
+          allowUpdates: true
+          prerelease: true
+
+      - name: "Upload Release Files"
+        uses: xresloader/upload-to-github-release@v1
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          file: 'DGG_Everywhere.zip;DGG_Everywhere_FF.zip;source.zip'
+          release_id: ${{ steps.create_pre_release.outputs.id }}
+          overwrite: true
+          draft: true
+          prerelease: true
+       
+       
+      
+    
