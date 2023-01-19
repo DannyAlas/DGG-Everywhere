@@ -15,10 +15,8 @@ jobs:
       - name: "Create Release Files"
         run: |
           set | grep GITHUB_ | grep -v GITHUB_TOKEN
-          zip -r source.zip *
           zip -r DGG_Everywhere.zip DGG_Everywhere
           zip -r DGG_Everywhere_FF.zip DGG_Everywhere_FF
-          ls
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
       
