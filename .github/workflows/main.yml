@@ -31,7 +31,7 @@ jobs:
           title: "Latest Development Build"
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
-          automatic_release_tag: "latest dev"
+          automatic_release_tag: "latest-dev"
           files: |
             source.zip
             DGG_Everywhere.zip
