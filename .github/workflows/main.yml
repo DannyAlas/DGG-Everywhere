@@ -12,50 +12,7 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Build Release
-        id: create_release
-        uses: mikepenz/release-changelog-builder-action@v3{latest-release}
-        with:
-          fromTag: "0.1.1"
-          configurationJson: |
-            {
-              "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
-              "categories": [
-                {
-                  "title": "Features",
-                  "labels": [
-                    "feature"
-                  ]
-                },
-                {
-                  "title": "Bug Fixes",
-                  "labels": [
-                    "bug"
-                  ]
-                },
-                {
-                  "title": "Documentation",
-                  "labels": [
-                    "documentation"
-                  ]
-                },
-                {
-                  "title": "Maintenance",
-                  "labels": [
-                    "maintenance"
-                  ]
-                }
-              ]
-            }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
-      - name: Create Release
-        id: create_release
-        uses: mikepenz/action-gh-release@v0.2.0-a03
-        with:
-          body: ${{steps.github_release.outputs.changelog}}
-        
+
       - uses: actions/checkout@v1
       - name: "Create Release Files"
         run: |
@@ -63,19 +20,19 @@ jobs:
           zip -r source.zip *
           zip -r DGG_Everywhere.zip DGG_Everywhere
           zip -r DGG_Everywhere_FF.zip DGG_Everywhere_FF
+          ls
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
 
-      - name: "Upload Release Files"
-        uses: xresloader/upload-to-github-release@v1
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        name: "Create Release"
+        id: create_release
         with:
-          release_id: ${{ steps.create_release.outputs.id }}
-          file: 'DGG_Everywhere.zip;DGG_Everywhere_FF.zip'
-          branches: 'main'
-          overwrite: true
-          draft: true
+          title: "Latest Development Build"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
-      
-    
+          automatic_release_tag: "latest dev"
+          files: |
+            source.zip
+            DGG_Everywhere.zip
+            DGG_Everywhere_FF.zip
