@@ -31,6 +31,5 @@ jobs:
           prerelease: true
           automatic_release_tag: "latest-dev"
           files: |
-            source.zip
             DGG_Everywhere.zip
             DGG_Everywhere_FF.zip
