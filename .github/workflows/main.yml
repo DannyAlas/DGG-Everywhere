@@ -58,7 +58,7 @@ jobs:
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: 'DGG_Everywhere.zip;DGG_Everywhere_FF.zip;source.zip'
+          file: 'DGG_Everywhere.zip;DGG_Everywhere_FF.zip'
           release_id: ${{ steps.create_pre_release.outputs.id }}
           overwrite: true
           draft: true
