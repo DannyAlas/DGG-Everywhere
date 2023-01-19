@@ -16,7 +16,7 @@ jobs:
           files: DGG_Everywhere/
           recursive: true
           dest: DGG_Everywhere.zip
-      - name: "sip firefox Files"
+      - name: "zip firefox Files"
         uses: vimtor/action-zip@v1
         with:
           files: DGG_Everywhere_FF/
