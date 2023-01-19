@@ -10,21 +10,21 @@ jobs:
   upload-release-files:
     runs-on: ubuntu-latest
     steps:
-      - name: "zip files"
-      - uses: actions/checkout@v2
-      - uses: vimtor/action-zip@v1
+      - name: "zip chrome files"
+        uses: vimtor/action-zip@v1
         with:
           files: DGG_Everywhere/
           recursive: true
           dest: DGG_Everywhere.zip
-      - uses: vimtor/action-zip@v1
+      - name: "sip firefox Files"
+        uses: vimtor/action-zip@v1
         with:
           files: DGG_Everywhere_FF/
           recursive: false
           dest: DGG_Everywhere_FF.zip
-
-      - uses: actions/create-release@v1
+      
       - name: "Create Pre-Release"
+        uses: actions/create-release@v1
         id: create_pre_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,8 +36,7 @@ jobs:
           allowUpdates: true
           draft: true
           prerelease: true
-
-      - uses: actions/checkout@v1
+      
       - name: "find env"
         run: |
           set | grep GITHUB_ | grep -v GITHUB_TOKEN
@@ -45,8 +44,8 @@ jobs:
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
           echo "$(openssl rand -hex 4)" > "random-name-$(openssl rand -hex 4).txt"
       
-      - uses: xresloader/upload-to-github-release@v1
       - name: "Uplad Files"
+        uses: xresloader/upload-to-github-release@v1
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
