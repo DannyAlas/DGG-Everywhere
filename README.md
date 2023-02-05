@@ -37,5 +37,5 @@ Click the [badge under the title](https://github.com/DannyAlas/DGG-For-Youtube#:
 #### Steps for Firefox:
 1. Download and unzip the latest release of **DGG_Chat_For_Youtube_FF.zip** 
 > **Note**: The `FF` in the name! It is a different file from the Chrome and Edge versions!
-2. Click the menu button Fx89menuButton, click Add-ons and themes and select Extensions.
-3. To add the downloaded add-on to the list of available add-ons, drag and drop the file into the Add-ons window. The add-on is added to the list. The installation process should begin.
+2. Click the menu button, then click `Add-ons and themes` and select `Extensions`.
+3. To add the downloaded add-on to the list of available add-ons, drag and drop the file into the Add-ons window. The installation process should begin shortly after.
