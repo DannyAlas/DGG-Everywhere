@@ -13,7 +13,7 @@
         "service_worker": "src/background.js"
     },
     "content_scripts": [{
-        "matches": ["*://*.youtube.com/*", "*://*.twitch.tv/*"],
+        "matches": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.destiny.gg/*"],
         "js": ["js/jquery/jquery.min.js", "src/content.js"],
         "run_at": "document_start"
     }],
