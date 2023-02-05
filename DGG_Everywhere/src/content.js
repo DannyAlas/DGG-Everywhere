@@ -211,7 +211,6 @@ function injectScript() {
     
 
     let chatlines = document.querySelector(".chat-lines");
-    console.log(chatlines)
     let textarea = document.querySelector("#chat-input-control");
     let scrollnotify = document.querySelector(".chat-scroll-notify");
     let livePill = undefined;
