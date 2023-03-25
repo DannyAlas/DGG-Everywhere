@@ -15,7 +15,7 @@
         "128": "icons/icon128.png"
     },
     "content_scripts": [{
-        "matches": ["*://*.youtube.com/*", "*://*.twitch.tv/*"],
+        "matches": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.destiny.gg/*", "*://*.kick.com/*", "*://rumble.com/*"],
         "js": ["js/jquery/jquery.min.js", "src/content.js"],
         "run_at": "document_start"
     }],
