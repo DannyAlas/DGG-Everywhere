@@ -170,13 +170,11 @@ function CHAT_REPLACER_9000() {
                                 while (rumbleChat.firstChild) {
                                     rumbleChat.removeChild(rumbleChat.firstChild);
                                 }
-                                // set the flex direction to row
-                                rumbleChat.setAttribute("style", "flex-direction: row; -webkit-flex-direction: row;")
                                 // add the iframe with dgg chat
                                 chat = document.createElement("iframe")
                                 chat.setAttribute("id", "dggChat")
                                 chat.setAttribute("class", "chat--container container")
-                                chat.setAttribute("style", "width: 400px; height: 635.17px; outline: none;")
+                                chat.setAttribute("style", "width: 400px; border: 0;")
                                 chat.setAttribute("src", "https://www.destiny.gg/embed/chat")
                                 rumbleChat.appendChild(chat)     
                             }

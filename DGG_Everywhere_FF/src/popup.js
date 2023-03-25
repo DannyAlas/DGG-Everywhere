@@ -112,7 +112,7 @@ checkbox.addEventListener("change", async(e) => {
                     chat = document.createElement("iframe")
                     chat.setAttribute("id", "dggChat")
                     chat.setAttribute("class", "chat--container container")
-                    chat.setAttribute("style", "width: 400px; height: 635.17px; outline: none;")
+                    chat.setAttribute("style", "width: 400px; border: 0;")
                     chat.setAttribute("src", "https://www.destiny.gg/embed/chat")
                     rumbleChat.appendChild(chat)                        
                 }
@@ -184,7 +184,7 @@ checkbox.addEventListener("change", async(e) => {
                             chat = document.createElement("iframe")
                             chat.setAttribute("id", "dggChat")
                             chat.setAttribute("class", "chat--container container")
-                            chat.setAttribute("style", "width: 400px; height: 635.17px;")
+                            chat.setAttribute("style", "width: 400px; border: 0;")
                             chat.setAttribute("src", src)     
                             rumbleChat.appendChild(chat)
                         });
