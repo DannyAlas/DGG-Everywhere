@@ -131,7 +131,6 @@ checkbox.addEventListener("change", async(e) => {
                 target: { tabId: tab.id },
                 function: async() => {
 
-                    console.log("UNPOOFING")
                     if (window.location.href.indexOf('youtube.com') > -1) {
 
                         chrome.storage.sync.get(["youtubeChatSrc"], function(result) {
