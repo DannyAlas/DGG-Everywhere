@@ -6,21 +6,20 @@ chrome.storage.sync.get(["checkbox"], async function(result) {
 });
 
 function loadDGGTW() {
-    twitch_chat = $(`div[class*=channel-root__right-column]`);
+    twitchChat = $(`div[class*=channel-root__right-column]`);
     
     console.log(
         '%c[DGG] %cPEEPO POOFING TWITCH CHAT AWAY',
         'color: #538CC6',
         'color: #6F859A',
     );
-    twitch_chat.empty();
+    twitchChat.empty();
     // console.log("POOF")
-    url = "https://www.destiny.gg/embed/chat"
-    twitch_chat.prepend(`<div style="display:block; height: 100% !important; width: 100% !important;"><iframe id="chatframe" class="dggChat" style="height: 100% !important; width: 100% !important; display: block;" src="${url}"></iframe></div>`)
+    twitchChat.prepend(`<div style="display:block; height: 100% !important; width: 100% !important;"><iframe id="chatframe" class="dggChat" style="height: 100% !important; width: 100% !important; display: block;" src="https://www.destiny.gg/embed/chat"></iframe></div>`)
 }
 
 function loadDGGYT() {
-    dggChat = $("ytd-live-chat-frame")
+    dggChat = $(`div[class*=channel-root__right-column]`)
     console.log(
         '%c[DGG] %cPEEPO POOFING YOUTUBE CHAT AWAY',
         'color: #538CC6',
@@ -31,8 +30,7 @@ function loadDGGYT() {
         "flex-direction": "row",
         "-webkit-flex-direction": "row",
     });
-    url = "https://www.destiny.gg/embed/chat"
-    dggChat.prepend(`<iframe id="chatframe" class="dggChat" style="flex: auto;" src="${url}"></iframe>`)
+    dggChat.prepend(`<iframe id="chatframe" class="dggChat" style="flex: auto;" src="https://www.destiny.gg/embed/chat"></iframe>`)
 }
 
 checkbox.addEventListener("change", async(e) => {
@@ -68,6 +66,56 @@ checkbox.addEventListener("change", async(e) => {
                         }
                     }
                 }
+                else if (window.location.href.indexOf('kick.com') > -1) {
+                    // KICK IS NOT A FAN OF JQUERY SO WE HAVE TO USE VANILLA JS
+                    chrome.storage.sync.set({"kickChatSrc": `https://kick.com/${
+                        window.location.href.substring(
+                            window.location.href.lastIndexOf('/') + 1
+                            )
+                        }/chatroom`})
+                    kickChat = document.getElementsByClassName("chatroom")[0]
+                    console.log(
+                        '%c[DGG] %cPEEPO POOFING KICK CHAT AWAY',
+                        'color: #538CC6',
+                        'color: #6F859A',
+                    );
+                    // remove all children from the chat
+                    while (kickChat.firstChild) {
+                        kickChat.removeChild(kickChat.firstChild);
+                    }
+                    // set the flex direction to row
+                    kickChat.setAttribute("style", "flex-direction: row; -webkit-flex-direction: row;")
+                    // add the iframe with dgg chat
+                    chat = document.createElement("iframe")
+                    chat.setAttribute("id", "dggChat")
+                    chat.setAttribute("class", "chatroom")
+                    chat.setAttribute("style", "flex: auto;")
+                    chat.setAttribute("src", "https://www.destiny.gg/embed/chat")
+                    kickChat.appendChild(chat)                        
+                }
+                else if (window.location.href.indexOf('rumble.com') > -1) {
+                    channel_id = document.getElementsByClassName("rumbles-vote")[0].getAttribute("data-id")
+                    chrome.storage.sync.set({"rumbleChatSrc": `https://rumble.com/chat/popup/${
+                        channel_id
+                    }`})
+                    rumbleChat = document.getElementsByClassName("chat--container")[0]
+                    console.log(
+                        '%c[DGG] %cPEEPO POOFING RUMBLE CHAT AWAY',
+                        'color: #538CC6',
+                        'color: #6F859A',
+                    );
+                    // remove all children from the chat
+                    while (rumbleChat.firstChild) {
+                        rumbleChat.removeChild(rumbleChat.firstChild);
+                    }
+                    // add the iframe with dgg chat
+                    chat = document.createElement("iframe")
+                    chat.setAttribute("id", "dggChat")
+                    chat.setAttribute("class", "chat--container container")
+                    chat.setAttribute("style", "width: 400px; height: 635.17px; outline: none;")
+                    chat.setAttribute("src", "https://www.destiny.gg/embed/chat")
+                    rumbleChat.appendChild(chat)                        
+                }
             }
         });
     } else if (!e.target.checked) {
@@ -83,7 +131,6 @@ checkbox.addEventListener("change", async(e) => {
                 target: { tabId: tab.id },
                 function: async() => {
 
-                    console.log("UNPOOFING")
                     if (window.location.href.indexOf('youtube.com') > -1) {
 
                         chrome.storage.sync.get(["youtubeChatSrc"], function(result) {
@@ -104,9 +151,42 @@ checkbox.addEventListener("change", async(e) => {
                     else if (window.location.href.indexOf('twitch.tv') > -1) {
                         chrome.storage.sync.get("twitchChatSrc", function(src) {
                             src = src.twitchChatSrc
-                            twitch_chat = $(`div[class*=channel-root__right-column]`);
-                            twitch_chat.empty();
-                            twitch_chat.prepend(`<div style="display:block; height: 100% !important; width: 100% !important;"><iframe style="display:block; height: 100% !important; width: 100% !important;" src="${src}"></iframe></div>`);
+                            twitchChat = $(`div[class*=channel-root__right-column]`);
+                            twitchChat.empty();
+                            twitchChat.prepend(`<div style="display:block; height: 100% !important; width: 100% !important;"><iframe style="display:block; height: 100% !important; width: 100% !important;" src="${src}"></iframe></div>`);
+                        });
+                    }
+
+                    else if (window.location.href.indexOf('kick.com') > -1) {
+                        chrome.storage.sync.get("kickChatSrc", function(src) {
+                            src = src.kickChatSrc
+                            kickChat = document.getElementsByClassName("chatroom")[0]
+                            while (kickChat.firstChild) {
+                                kickChat.removeChild(kickChat.firstChild);
+                            }
+                            kickChat.setAttribute("style", "flex-direction: column; -webkit-flex-direction: column;")
+                            chat = document.createElement("iframe")
+                            chat.setAttribute("id", "dggChat")
+                            chat.setAttribute("class", "chatroom")
+                            chat.setAttribute("style", "flex: auto;")
+                            chat.setAttribute("src", src)     
+                            kickChat.appendChild(chat)
+                        });
+                    }
+                    else if (window.location.href.indexOf('rumble.com') > -1) {
+                        chrome.storage.sync.get("rumbleChatSrc", function(src) {
+                            src = src.rumbleChatSrc
+                            rumbleChat = document.getElementsByClassName("chat--container")[0]
+                            while (rumbleChat.firstChild) {
+                                rumbleChat.removeChild(rumbleChat.firstChild);
+                            }
+                            rumbleChat.setAttribute("style", "flex-direction: column; -webkit-flex-direction: column;")
+                            chat = document.createElement("iframe")
+                            chat.setAttribute("id", "dggChat")
+                            chat.setAttribute("class", "chat--container container")
+                            chat.setAttribute("style", "width: 400px; height: 635.17px;")
+                            chat.setAttribute("src", src)     
+                            rumbleChat.appendChild(chat)
                         });
                     }
                 }
