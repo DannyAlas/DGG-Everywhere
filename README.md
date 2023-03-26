@@ -9,9 +9,6 @@
 > **Note**: **This is in no way affiliated with [Destiny.gg](https://destiny.gg), please see the [LICENSE](https://github.com/DannyAlas/DGG-For-Youtube/blob/main/LICENSE) for attribution**
 
 ## Replaces:
-
-## Replaces:
-
 <details>
 <summary>YouTube Chat</summary>
    <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-Everywhere/main/img/youtube_demo.gif"/></p>
