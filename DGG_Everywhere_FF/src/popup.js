@@ -250,3 +250,21 @@ checkbox.addEventListener("change", async (e) => {
 		)
 	}
 })
+
+// you gotta have some fun... right? (also im too artistically inept to make this extenion look nice)
+chrome.runtime.sendMessage(
+	{
+		contentScriptQuery: "getEmotes",
+		url: "https://cdn.destiny.gg/emotes/emotes.json",
+	},
+	function (response) {
+		var randomIndex = Math.floor(Math.random() * response.length)
+		var emote = document.createElement("img")
+		emote.setAttribute("src", response[randomIndex].image[0].url)
+		emote.setAttribute(
+			"style",
+			"position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%; width: 100%; object-fit: contain; z-index: -1; opacity: 0.7;"
+		)
+		document.body.appendChild(emote)
+	}
+)

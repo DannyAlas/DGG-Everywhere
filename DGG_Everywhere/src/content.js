@@ -235,15 +235,3 @@ new MutationObserver(() => {
 		CHAT_REPLACER_9000()
 	}
 }).observe(document, { subtree: true, childList: true })
-
-// update the chat src on youtube when message is received from background.js
-// chrome.runtime.onMessage.addListener(
-//     function(request, sender, sendResponse) {
-//         if (request.message == "updateSrc") {
-//             if (window.location.href.indexOf('youtube.com/watch') > -1) {
-//                 updateYoutubeSrc()
-//                 sendResponse({message: "src updated for youtube"})
-//                 }
-//             }
-//         }
-// )

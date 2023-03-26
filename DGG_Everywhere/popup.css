@@ -1,5 +1,5 @@
 body {
-	background: linear-gradient(to right, #30394a, #566878);
+	background: linear-gradient(to right, #313a4b, #556677);
 }
 
 @font-face {
@@ -16,26 +16,29 @@ body {
 .options {
 	display: flex;
 	justify-content: center;
-	padding: 7px;
+	/* padding: 7px; */
 }
 
 .button {
 	appearance: none;
 	backface-visibility: hidden;
-	background-color: #538cc6;
+	background-color: #538cc6bc;
 	border-radius: 8px;
 	border-style: none;
 	box-shadow: rgba(61, 61, 61, 0.15) 0 4px 9px;
 	box-sizing: border-box;
 	color: #fff;
 	cursor: pointer;
+	width: 100%;
 	display: inline-block;
 	font-size: 16px;
 	font-weight: 600;
 	letter-spacing: normal;
 	outline: none;
 	overflow: hidden;
-	padding-top: 3px;
+	margin: 5px;
+	margin-bottom: 16px;
+	padding-top: 2px;
 	padding-bottom: 7px;
 	padding-left: 7px;
 	padding-right: 7px;
@@ -52,7 +55,7 @@ body {
 }
 
 .button:hover {
-	background-color: #5f7892;
+	background-color: #5f7892b6;
 	opacity: 1;
 	transform: translateY(0);
 	transition-duration: 0.1s;
@@ -70,6 +73,7 @@ body {
 .switch {
 	position: relative;
 	display: inline-block;
+	margin-bottom: 5px;
 	width: 50px;
 	height: 24px;
 }
@@ -89,7 +93,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #ccc;
+	background-color: #ddddddca;
 	-webkit-transition: 0.2s;
 	transition: 0.2s;
 }
@@ -101,7 +105,7 @@ body {
 	width: 16px;
 	left: 4px;
 	bottom: 4px;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.882);
 	-webkit-transition: 0.1s;
 	transition: 0.2s;
 }
@@ -111,7 +115,7 @@ body {
 }
 
 input:checked + .slider {
-	background-color: #538cc6;
+	background-color: #538cc6bc;
 }
 
 input:focus + .slider {
@@ -132,4 +136,29 @@ input:checked + .slider:before {
 
 .slider.round:before {
 	border-radius: 50%;
+}
+
+.help {
+	/* place at the very bottom right */
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 9999;
+	padding: 2px;
+	/* make text small and white*/
+	font-size: 12px;
+	color: #fff;
+	/* make text 20 px from right edge */
+	align-items: right;
+}
+.image {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	/* dont overlap with items above */
+	z-index: -1;
+	padding-top: 1px;
+	margin-right: 1px;
+	color: #fff;
 }
