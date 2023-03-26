@@ -1,0 +1,164 @@
+body {
+	background: linear-gradient(to right, #313a4b, #556677);
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("Roboto-ThinItalic-webfont.eot");
+	src: url("Roboto-ThinItalic-webfont.eot?#iefix") format("embedded-opentype"),
+		url("Roboto-ThinItalic-webfont.woff") format("woff"),
+		url("Roboto-ThinItalic-webfont.ttf") format("truetype"),
+		url("Roboto-ThinItalic-webfont.svg#RobotoThinItalic") format("svg");
+	font-weight: 200;
+	font-style: italic;
+}
+
+.options {
+	display: flex;
+	justify-content: center;
+	/* padding: 7px; */
+}
+
+.button {
+	appearance: none;
+	backface-visibility: hidden;
+	background-color: #538cc6bc;
+	border-radius: 8px;
+	border-style: none;
+	box-shadow: rgba(61, 61, 61, 0.15) 0 4px 9px;
+	box-sizing: border-box;
+	color: #fff;
+	cursor: pointer;
+	width: 100%;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: normal;
+	outline: none;
+	overflow: hidden;
+	margin: 5px;
+	margin-bottom: 16px;
+	padding-top: 2px;
+	padding-bottom: 7px;
+	padding-left: 7px;
+	padding-right: 7px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	transform: translate3d(0, 0, 0);
+	transition: all 0.2s;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.button:hover {
+	background-color: #5f7892b6;
+	opacity: 1;
+	transform: translateY(0);
+	transition-duration: 0.1s;
+}
+
+.button:active {
+	transform: translateY(2px);
+	transition-duration: 0.1s;
+}
+
+.button:hover {
+	box-shadow: rgba(173, 211, 255, 0.2) 0 6px 12px;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 5px;
+	width: 50px;
+	height: 24px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ddddddca;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 16px;
+	width: 16px;
+	left: 4px;
+	bottom: 4px;
+	background-color: rgba(255, 255, 255, 0.882);
+	-webkit-transition: 0.1s;
+	transition: 0.2s;
+}
+
+.slider:hover {
+	box-shadow: rgba(173, 211, 255, 0.2) 0 6px 12px;
+}
+
+input:checked + .slider {
+	background-color: #538cc6bc;
+}
+
+input:focus + .slider {
+	box-shadow: rgba(173, 211, 255, 0.2) 0 6px 12px;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.help {
+	/* place at the very bottom right */
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 9999;
+	padding: 2px;
+	/* make text small and white*/
+	font-size: 12px;
+	color: #fff;
+	/* make text 20 px from right edge */
+	align-items: right;
+}
+.image {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	/* dont overlap with items above */
+	z-index: -1;
+	padding-top: 1px;
+	margin-right: 1px;
+	color: #fff;
+}
