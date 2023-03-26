@@ -7,10 +7,23 @@
 <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/demo.gif"/></p>
 
 > **Note**: **This is in no way affiliated with [Destiny.gg](https://destiny.gg), please see the [LICENSE](https://github.com/DannyAlas/DGG-For-Youtube/blob/main/LICENSE) for attribution**
+
 ## Replaces:
 
-- YouTube Live Chat
-- Twitch Chat
+## Replaces:
+
+<details>
+<summary>YouTube Chat</summary>
+</details>
+<details>
+<summary>Twitch Chat</summary>
+</details>
+<details>
+<summary>Kick Chat</summary>
+</details>
+<details>
+<summary>Rumble Chat</summary>
+</details>
 
 ---
 
@@ -23,19 +36,22 @@
 - [Download the latest release here](https://github.com/DannyAlas/DGG-For-Youtube/releases)
 
 #### Steps For Chrome:
-1. Download and unzip the latest release of **DGG_Chat_For_Youtube.zip** 
+
+1. Download and unzip the latest release of **DGG_Chat_For_Youtube.zip**
 2. Open the extensions page on Chrome by either choosing the three dots at the top right of your browser and selecting More tools > Extensions | or by typing `chrome://extensions` into the url.
 3. On the extensions page, ensure "Developer mode" is enabled using the toggle at the top right of the page.
 4. In the top left click "Load unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
 
 #### Steps for Edge:
+
 1. Download and unzip the latest release of **DGG_Chat_For_Youtube.zip**
 2. Open the extensions page on edge by either choosing the three dots at the top right of your browser and selecting Extensions or typing `edge://extensions` into the url.
 3. On the extensions page, turn on Developer mode using the toggle at the bottom left of the page.
 4. In the top right select "Load Unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
 
 #### Steps for Firefox:
-1. Download and unzip the latest release of **DGG_Chat_For_Youtube_FF.zip** 
-> **Note**: The `FF` in the name! It is a different file from the Chrome and Edge versions!
+
+1. Download and unzip the latest release of **DGG_Chat_For_Youtube_FF.zip**
+   > **Note**: The `FF` in the name! It is a different file from the Chrome and Edge versions!
 2. Click the menu button, then click `Add-ons and themes` and select `Extensions`.
 3. To add the downloaded add-on to the list of available add-ons, drag and drop the file into the Add-ons window. The installation process should begin shortly after.
