@@ -263,7 +263,7 @@ chrome.runtime.sendMessage(
 		emote.setAttribute("src", response[randomIndex].image[0].url)
 		emote.setAttribute(
 			"style",
-			"position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%; width: 100%; object-fit: contain; z-index: -1; opacity: 0.7;"
+			"position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%; width: 100%; object-fit: contain; z-index: -1; opacity: 0.5;"
 		)
 		document.body.appendChild(emote)
 	}
