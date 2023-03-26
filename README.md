@@ -14,15 +14,19 @@
 
 <details>
 <summary>YouTube Chat</summary>
+   <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-Everywhere/main/img/youtube_demo.gif"/></p>
 </details>
 <details>
 <summary>Twitch Chat</summary>
+   <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/twitch_demo.gif"/></p>
 </details>
 <details>
 <summary>Kick Chat</summary>
+   <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/kick_demo.gif"/></p>
 </details>
 <details>
 <summary>Rumble Chat</summary>
+   <p align="center"><img src="https://raw.githubusercontent.com/DannyAlas/DGG-For-Youtube/main/img/rumble_demo.gif"/></p>
 </details>
 
 ---
