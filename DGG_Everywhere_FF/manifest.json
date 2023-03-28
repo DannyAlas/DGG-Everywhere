@@ -4,9 +4,9 @@
       "id": "{1bdd8873-ca8c-45ba-a46a-6c05c15c4488}"
     }
   },
-    "name": "DGG Chat for YouTube",
+    "name": "DGG Chat Everywhere",
     "description": "Replaces Live Chats With DGG Chat.",
-    "version": "0.1.3",
+    "version": "0.2.0",
     "manifest_version": 3,
     "default_locale": "en",
     "icons": {
