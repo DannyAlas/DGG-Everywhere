@@ -259,6 +259,13 @@ chrome.runtime.sendMessage(
 	},
 	function (response) {
 		var randomIndex = Math.floor(Math.random() * response.length)
+		// if the emote width is more then 3 times the height, get a new emote
+		while (
+			response[randomIndex].image[0].width >
+			response[randomIndex].image[0].height * 3
+		) {
+			randomIndex = Math.floor(Math.random() * response.length)
+		}
 		var emote = document.createElement("img")
 		emote.setAttribute("src", response[randomIndex].image[0].url)
 		emote.setAttribute(
