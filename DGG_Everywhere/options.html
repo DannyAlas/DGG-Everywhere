@@ -1,0 +1,159 @@
+ <!-- create a basic options page using bootstrap -->
+<!-- https://getbootstrap.com/docs/4.0/components/forms/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Options</title>
+		<link
+			rel="stylesheet"
+			href="bootstrap.min.css"
+		/>
+        <link
+            rel="stylesheet"
+            href="options.css"
+        />
+	</head>
+
+	<!-- create a grid -->
+    <body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                    <h2 class="h3 mb-4 page-title">Options</h2>
+                    <div class="my-4">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="main-tab" data-bs-toggle="tab" data-bs-target="#main" type="button" role="tab" aria-controls="main" aria-selected="true">Main</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="Help-tab" data-bs-toggle="tab" data-bs-target="#Help" type="button" role="tab" aria-controls="Help" aria-selected="false">Help</button>
+                            </li>
+                          </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="main" role="tabpanel" aria-labelledby="main-tab">
+                                <div id="permissions-warning" role="alert" class="alert alert-warning alert-dismissible fade show" hidden>
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <strong class="mb-2">Warning!</strong>
+                                            <p class="mb-0">You must disable these permissions in the extension page: chrome://extensions</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="mb-0 mt-5">Site Permissions</h5>
+                                <p>These are used to automatically load DGG chat without opening the extension</p>
+                                <div class="list-group shadow">
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <strong class="mb-2">Youtube</strong>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-switch">
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="origin-permission" data-origin="*://*.youtube.com/*">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <strong class="mb-2">Twitch</strong>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-switch">
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="origin-permission" data-origin="*://*.twitch.tv/*">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <strong class="mb-2">Kick</strong>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-switch">
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="origin-permission" data-origin="*://*.kick.com/*">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <strong class="mb-2">Rumble</strong>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="custom-control custom-switch">
+                                                    <label class="switch">
+                                                        <input type="checkbox" class="origin-permission" data-origin="*://rumble.com/*">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane fade" id="Help" role="tabpanel" aria-labelledby="Help-tab">
+                                <h5 class="mb-0">Recent Activity</h5>
+                        <p>Last activities with your account.</p>
+                        <table class="table border bg-white">
+                            <thead>
+                                <tr>
+                                    <th>Device</th>
+                                    <th>Location</th>
+                                    <th>IP</th>
+                                    <th>Time</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="col"><i class="fe fe-globe fe-12 text-muted mr-2"></i>Chrome - Windows 10</th>
+                                    <td>Paris, France</td>
+                                    <td>192.168.1.10</td>
+                                    <td>Apr 24, 2019</td>
+                                    <td><a hreff="#" class="text-muted"><i class="fe fe-x"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col"><i class="fe fe-smartphone fe-12 text-muted mr-2"></i>App - Mac OS</th>
+                                    <td>Newyork, USA</td>
+                                    <td>10.0.0.10</td>
+                                    <td>Apr 24, 2019</td>
+                                    <td><a hreff="#" class="text-muted"><i class="fe fe-x"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col"><i class="fe fe-globe fe-12 text-muted mr-2"></i>Chrome - iOS</th>
+                                    <td>London, UK</td>
+                                    <td>255.255.255.0</td>
+                                    <td>Apr 24, 2019</td>
+                                    <td><a hreff="#" class="text-muted"><i class="fe fe-x"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            
+                            </div>
+                          </div>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module" src="src/options.js"></script>
+    </body>
+</html>

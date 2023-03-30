@@ -13,4 +13,7 @@ module.exports = {
 		indent: ["error", "tab"],
 		semi: ["error", "never"],
 	},
+	parserOptions: {
+		sourceType: "module",
+	},
 }

@@ -12,11 +12,18 @@
     "background": {
         "service_worker": "src/background.js"
     },
+    "options_page": "options.html",
     "content_scripts": [{
-        "matches": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.destiny.gg/*", "*://*.kick.com/*", "*://rumble.com/*"],
+        "id": "chat-injector",
+        "matches": ["*://*.destiny.gg/*"],
         "js": ["src/content.js"],
-        "run_at": "document_start"
+        "runAt": "document_start"
     }],
+    "optional_host_permissions": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.kick.com/*", "*://rumble.com/*"],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
     "action": {
         "default_popup": "popup.html"
     },

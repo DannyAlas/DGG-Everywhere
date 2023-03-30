@@ -1,4 +1,5 @@
 const checkbox = document.querySelector("input[name=checkbox]")
+
 chrome.storage.sync.get(["checkbox"], async function (result) {
 	if (result.checkbox != null) {
 		document.getElementById("checkbox").checked = result.checkbox
@@ -6,14 +7,83 @@ chrome.storage.sync.get(["checkbox"], async function (result) {
 		document.getElementById("checkbox").checked = false
 	}
 })
+
+function getOrigin(url) {
+	let possibleOrigins = [
+		"*://*.youtube.com/*",
+		"*://*.twitch.tv/*",
+		"*://*.destiny.gg/*",
+		"*://*.kick.com/*",
+		"*://rumble.com/*",
+	]
+	for (let origin of possibleOrigins) {
+		let base = origin.replace("*", "").replace("//", "").replace("/", "")
+		if (url.match(base)) {
+			return origin
+		}
+	}
+}
+
+function getSelectedOrigins() {
+	let origins = ["https://*.destiny.gg/*"]
+	chrome.permissions.getAll().then((permissions) => {
+		for (let origin of permissions.origins) {
+			origins.push(origin)
+		}
+	})
+	return origins
+}
+
+async function registerContentScript() {
+	chrome.scripting.getRegisteredContentScripts().then((scripts) => {
+		if (!scripts.find((script) => script.id === "chat-injector")) {
+			chrome.scripting.registerContentScripts([
+				{
+					id: "chat-injector",
+					matches: getSelectedOrigins(),
+					js: ["src/content.js"],
+					runAt: "document_start",
+				},
+			])
+		}
+	})
+}
+
+// function doWeHavePermission(origin) {
+// 	chrome.permissions.getAll().then((permissions) => {
+// 		if (permissions.origins.includes(origin)) {
+// 			return true
+// 		} else {
+// 			return false
+// 		}
+// 	})
+// }
+
 checkbox.addEventListener("change", async (e) => {
 	if (e.target.checked) {
+		await registerContentScript()
 		chrome.storage.sync.set({ checkbox: true })
 		let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
+		let origin = getOrigin(tab.url)
+
+		await chrome.permissions.request({ origins: [origin] }).then((granted) => {
+			console.log("Permission granted", granted)
+
+			if (granted) {
+				// check if the content script is registered
+				chrome.scripting.updateContentScripts([
+					{
+						id: "chat-injector",
+						matches: getSelectedOrigins(),
+					},
+				])
+			}
+		})
 
 		chrome.scripting.executeScript({
 			target: { tabId: tab.id },
 			function: async () => {
+				// Path: DGG_Everywhere\src\content.js
 				var DGGurl = "https://www.destiny.gg/embed/chat"
 				if (window.location.href.indexOf("youtube.com/watch") > -1) {
 					// save youtube url to storage for the popup
