@@ -19,7 +19,7 @@
         "js": ["src/content.js"],
         "runAt": "document_start"
     }],
-    "optional_host_permissions": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.kick.com/*", "*://rumble.com/*"],
+    "optional_host_permissions": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.kick.com/*", "*://*.rumble.com/*"],
     "options_ui": {
         "page": "options.html",
         "open_in_tab": true
@@ -29,7 +29,6 @@
     },
     "permissions": [
         "activeTab",
-        "tabs",
         "storage",
         "scripting"
     ]
