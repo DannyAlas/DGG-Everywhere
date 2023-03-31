@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Options</title>
+		<link rel="stylesheet" href="./style/bootstrap.min.css" />
+		<link rel="stylesheet" href="./style/options.css" />
+	</head>
+
+	<!-- create a grid -->
+	<body>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-lg-10 col-xl-8 mx-auto">
+					<div class="my-4">
+						<!-- add an image next to Options text -->
+						<h2 class="h2 mb-4 page-title text-center">
+							Options
+							<img
+								src="https://cdn.destiny.gg//2.63.0//emotes//6296cf7e8ccd0.png"
+								alt="DGGL"
+								width="50"
+								height="50"
+								style="margin-left: 7px"
+							/>
+						</h2>
+						<div class="my-4">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button
+										class="nav-link active"
+										id="main-tab"
+										data-bs-toggle="tab"
+										data-bs-target="#main"
+										type="button"
+										role="tab"
+										aria-controls="main"
+										aria-selected="true"
+									>
+										Main
+									</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button
+										class="nav-link"
+										id="Utils-tab"
+										data-bs-toggle="tab"
+										data-bs-target="#Utils"
+										type="button"
+										role="tab"
+										aria-controls="Utils"
+										aria-selected="false"
+									>
+										Utils
+									</button>
+								</li>
+								<li class="disabled">
+									<a
+										class="nav-link"
+										href="https://github.com/DannyAlas/DGG-Everywhere"
+										target="link"
+										title="Help"
+										id="Help-tab"
+										type="button"
+										>Help
+									</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div
+									class="tab-pane fade show active"
+									id="main"
+									role="tabpanel"
+									aria-labelledby="main-tab"
+								>
+									<div
+										id="permissions-warning"
+										role="alert"
+										class="alert alert-warning alert-dismissible fade show"
+										hidden
+									>
+										<div class="row align-items-center">
+											<div class="col">
+												<strong class="mb-2">Warning!</strong>
+												<p class="mb-0">
+													You must disable these permissions in the extension
+													page: chrome://extensions
+												</p>
+											</div>
+										</div>
+									</div>
+									<h5 class="mb-0 mt-5">Site Permissions</h5>
+									<p>
+										These are used to automatically load DGG chat without
+										opening the extension each time
+									</p>
+									<div class="list-group shadow">
+										<div class="list-group-item">
+											<div class="row align-items-center">
+												<div class="col">
+													<strong class="mb-2">Youtube</strong>
+												</div>
+												<div class="col-auto">
+													<div class="custom-control custom-switch">
+														<label class="switch">
+															<input
+																type="checkbox"
+																class="origin-permission"
+																data-origin="*://*.youtube.com/*"
+															/>
+															<span class="slider round"></span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="list-group-item">
+											<div class="row align-items-center">
+												<div class="col">
+													<strong class="mb-2">Twitch</strong>
+												</div>
+												<div class="col-auto">
+													<div class="custom-control custom-switch">
+														<label class="switch">
+															<input
+																type="checkbox"
+																class="origin-permission"
+																data-origin="*://*.twitch.tv/*"
+															/>
+															<span class="slider round"></span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="list-group-item">
+											<div class="row align-items-center">
+												<div class="col">
+													<strong class="mb-2">Kick</strong>
+												</div>
+												<div class="col-auto">
+													<div class="custom-control custom-switch">
+														<label class="switch">
+															<input
+																type="checkbox"
+																class="origin-permission"
+																data-origin="*://*.kick.com/*"
+															/>
+															<span class="slider round"></span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="list-group-item">
+											<div class="row align-items-center">
+												<div class="col">
+													<strong class="mb-2">Rumble</strong>
+												</div>
+												<div class="col-auto">
+													<div class="custom-control custom-switch">
+														<label class="switch">
+															<input
+																type="checkbox"
+																class="origin-permission"
+																data-origin="*://*.rumble.com/*"
+															/>
+															<span class="slider round"></span>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="tab-pane fade"
+									id="Utils"
+									role="tabpanel"
+									aria-labelledby="Utils-tab"
+								>
+									<h5 class="mb-0 mt-5">DGG Utils</h5>
+									<p>Coming soon...</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="module" src="src/options.js"></script>
+	</body>
+</html>

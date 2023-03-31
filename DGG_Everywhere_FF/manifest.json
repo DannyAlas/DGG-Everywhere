@@ -6,7 +6,7 @@
   },
     "name": "DGG Chat Everywhere",
     "description": "Replaces Live Chats With DGG Chat.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "manifest_version": 3,
     "default_locale": "en",
     "icons": {
@@ -14,17 +14,24 @@
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
     },
+    "background": {
+        "scripts": ["src/background.js"]
+    },
     "content_scripts": [{
-        "matches": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.destiny.gg/*", "*://*.kick.com/*", "*://rumble.com/*"],
+        "matches": ["*://*.destiny.gg/*"],
         "js": ["src/content.js"],
         "run_at": "document_start"
     }],
+    "optional_permissions": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.kick.com/*", "*://*.rumble.com/*"],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
     "action": {
         "default_popup": "popup.html"
     },
     "permissions": [
         "activeTab",
-        "tabs",
         "storage",
         "scripting"
     ]
