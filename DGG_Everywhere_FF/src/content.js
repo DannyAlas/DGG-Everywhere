@@ -146,7 +146,7 @@ async function replaceKick() {
 		)}/chatroom`,
 	})
 	const intervalId = setInterval(() => {
-		var currentChat = document.getElementsByClassName("chatroom")[0]
+		var currentChat = document.getElementById("chatroom")
 		if (currentChat) {
 			chrome.storage.sync.get(
 				`checkbox-${getDomainFromUrl(window.location.href)}`,
@@ -160,9 +160,26 @@ async function replaceKick() {
 							"color: #538CC6",
 							"color: #6F859A"
 						)
-						// remove all children from the chat
-						while (currentChat.firstChild) {
-							currentChat.removeChild(currentChat.firstChild)
+						// loop through all the children of the chat and remove them if they don't have the id of chatroom-top
+						for (var i = 0; i < currentChat.children.length + 1; i++) {
+							if (currentChat.children[i].id === "chatroom-top") {
+								// loop through all the children of the chatroom-top and remove them if they don't have the custom attribute of channel-slug
+								for (
+									var j = 0;
+									j < currentChat.children[i].children.length;
+									j++
+								) {
+									if (
+										currentChat.children[i].children[j].getAttribute(
+											"channel-slug"
+										) === null
+									) {
+										currentChat.children[i].children[j].remove()
+									}
+								}
+							} else {
+								currentChat.removeChild(currentChat.children[i])
+							}
 						}
 						// set the flex direction to row
 						currentChat.setAttribute(
@@ -173,6 +190,7 @@ async function replaceKick() {
 						var newChat = document.createElement("iframe")
 						newChat.setAttribute("id", "dggChat")
 						newChat.setAttribute("class", "chatframe")
+						// add padding to the bottom of the chat
 						newChat.setAttribute("style", "flex: auto")
 						newChat.setAttribute("src", "https://www.destiny.gg/embed/chat")
 						currentChat.appendChild(newChat)
