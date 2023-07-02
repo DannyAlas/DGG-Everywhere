@@ -5,10 +5,11 @@ function getOrigin(url) {
 	let possibleOrigins = [
 		"*://*.youtube.com/*",
 		"*://*.twitch.tv/*",
-		"*://*.destiny.gg/*",
 		"*://*.kick.com/*",
 		"*://*.rumble.com/*",
+		"*://*.destiny.gg/*",
 	]
+	console.log(url)
 	for (let origin of possibleOrigins) {
 		const regex = /\.([^/]+)\./
 		if (url.match(regex.exec(origin)[1])) {
@@ -69,6 +70,7 @@ async function doWeHavePermission(origin) {
 async function setCheckbox() {
 	let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
 	let origin = getOrigin(tab.url)
+	console.log(origin)
 	chrome.storage.sync.get(
 		[`checkbox-${getDomainFromOrigin(origin)}`],
 		async function (result) {
@@ -215,7 +217,7 @@ checkbox.addEventListener("change", async (e) => {
 							})
 						} else if (window.location.href.indexOf("kick.com") > -1) {
 							chrome.storage.sync.get("kickChatSrc", function (src) {
-								var currentChat = document.getElementsByClassName("chatroom")[0]
+								var currentChat = document.getElementById("chatroom")
 								while (currentChat.firstChild) {
 									currentChat.removeChild(currentChat.firstChild)
 								}
