@@ -218,8 +218,25 @@ checkbox.addEventListener("change", async (e) => {
 						} else if (window.location.href.indexOf("kick.com") > -1) {
 							chrome.storage.sync.get("kickChatSrc", function (src) {
 								var currentChat = document.getElementById("chatroom")
-								while (currentChat.firstChild) {
-									currentChat.removeChild(currentChat.firstChild)
+								for (var i = 0; i < currentChat.children.length + 1; i++) {
+									if (currentChat.children[i].id === "chatroom-top") {
+										// loop through all the children of the chatroom-top and remove them if they don't have the custom attribute of channel-slug
+										for (
+											var j = 0;
+											j < currentChat.children[i].children.length;
+											j++
+										) {
+											if (
+												currentChat.children[i].children[j].getAttribute(
+													"channel-slug"
+												) === null
+											) {
+												currentChat.children[i].children[j].remove()
+											}
+										}
+									} else {
+										currentChat.removeChild(currentChat.children[i])
+									}
 								}
 								currentChat.setAttribute(
 									"style",
