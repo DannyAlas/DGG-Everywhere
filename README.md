@@ -50,9 +50,6 @@
 3. On the extensions page, turn on Developer mode using the toggle at the bottom left of the page.
 4. In the top right select "Load Unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
 
-#### Steps for Firefox:
+#### ~~Steps for Firefox:~~ 
+- **TEMPORARILY DISABLED - please install as [temporary add-on](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)** or through the [Add-on Store](https://addons.mozilla.org/en-US/firefox/addon/dgg-chat-for-youtube/)
 
-1. Download and unzip the latest release of **DGG_Chat_For_Youtube_FF.zip**
-   > **Note**: The `FF` in the name! It is a different file from the Chrome and Edge versions!
-2. Click the menu button, then click `Add-ons and themes` and select `Extensions`.
-3. To add the downloaded add-on to the list of available add-ons, drag and drop the file into the Add-ons window. The installation process should begin shortly after.
