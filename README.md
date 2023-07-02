@@ -51,5 +51,5 @@
 4. In the top right select "Load Unpacked" - You'll be prompted for the directory of the extension files. Navigate into the directory you unzipped and select it.
 
 #### ~~Steps for Firefox:~~ 
-- **TEMPORARILY DISABLED - please install as [temporary add-on](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)** or through the [Add-on Store](https://addons.mozilla.org/en-US/firefox/addon/dgg-chat-for-youtube/)
+- **TEMPORARILY DISABLED - please install as [temporary add-on](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)** or through the [Add-on Store](https://addons.mozilla.org/en-US/firefox/addon/dgg-everywhere/)
 
