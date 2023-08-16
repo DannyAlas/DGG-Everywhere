@@ -176,7 +176,7 @@ checkbox.addEventListener("change", async (e) => {
 							"color: #538CC6",
 							"color: #6F859A"
 						)
-						if (window.location.href.indexOf("youtube.com/watch") > -1) {
+						if (window.location.href.indexOf("youtube.com") > -1) {
 							chrome.storage.sync.get("youtubeChatSrc", function (result) {
 								var currentChat = document.getElementsByTagName(
 									"ytd-live-chat-frame"

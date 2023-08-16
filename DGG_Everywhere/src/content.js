@@ -260,7 +260,7 @@ async function replaceRumble() {
 }
 
 async function CHAT_REPLACER_9000() {
-	if (window.location.href.indexOf("youtube.com/watch") > -1) {
+	if (window.location.href.indexOf("youtube.com") > -1) {
 		await replaceYoutube()
 	}
 	if (window.location.href.indexOf("twitch.tv") > -1) {

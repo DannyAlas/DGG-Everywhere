@@ -261,7 +261,7 @@ async function replaceRumble() {
 
 async function CHAT_REPLACER_9000() {
 	// save youtube url to storage for the popup if it is not the dgg chat
-	if (window.location.href.indexOf("youtube.com/watch") > -1) {
+	if (window.location.href.indexOf("youtube.com") > -1) {
 		await replaceYoutube()
 	}
 	if (window.location.href.indexOf("twitch.tv") > -1) {
