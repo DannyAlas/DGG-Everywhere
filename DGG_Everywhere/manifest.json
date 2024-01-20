@@ -18,6 +18,15 @@
         "matches": ["*://*.destiny.gg/*"],
         "js": ["src/content.js"],
         "runAt": "document_start"
+    },
+    {
+        "id": "chat-injector",
+        "matches": ["*://*.destiny.gg/*"],
+        "js": ["src/chat_injector.js"],
+        "match_about_blank": true,
+        "all_frames": true,
+        "runAt": "document_start"
+      
     }],
     "optional_host_permissions": ["*://*.youtube.com/*", "*://*.twitch.tv/*", "*://*.kick.com/*", "*://*.rumble.com/*"],
     "options_ui": {
