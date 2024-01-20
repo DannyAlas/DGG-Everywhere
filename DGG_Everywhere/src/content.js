@@ -262,6 +262,8 @@ async function fixAutofocus() {
 	// ask the background script to notify us when the tab changes
 	chrome.runtime.sendMessage({ message: "notifyTabChange" })
 	var firstSwitch = true
+	chrome.runtime.onMessage.addListener(function (request) {
+		if (request.message === "tabChanged" && firstSwitch) {
 			// for the next second every millisecond scroll to the top of the page
 			var intervalId = setInterval(() => {
 				window.scrollTo(0, 0)
