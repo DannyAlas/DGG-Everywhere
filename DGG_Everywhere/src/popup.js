@@ -9,7 +9,6 @@ function getOrigin(url) {
 		"*://*.rumble.com/*",
 		"*://*.destiny.gg/*",
 	]
-	console.log(url)
 	for (let origin of possibleOrigins) {
 		const regex = /\.([^/]+)\./
 		if (url.match(regex.exec(origin)[1])) {
@@ -70,7 +69,6 @@ async function doWeHavePermission(origin) {
 async function setCheckbox() {
 	let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
 	let origin = getOrigin(tab.url)
-	console.log(origin)
 	chrome.storage.sync.get(
 		[`checkbox-${getDomainFromOrigin(origin)}`],
 		async function (result) {
@@ -176,7 +174,10 @@ checkbox.addEventListener("change", async (e) => {
 							"color: #538CC6",
 							"color: #6F859A"
 						)
-						if (window.location.href.indexOf("youtube.com/watch") > -1) {
+						if (
+							window.location.href.indexOf("youtube.com/watch") > -1 ||
+							window.location.href.indexOf("youtube.com/live") > -1
+						) {
 							chrome.storage.sync.get("youtubeChatSrc", function (result) {
 								var currentChat = document.getElementsByTagName(
 									"ytd-live-chat-frame"
