@@ -32,7 +32,6 @@ async function replaceYoutube() {
 				!isDGGLoaded()
 			) {
 				const intervalId = setInterval(() => {
-					// if the custom src is available save that, otherwise use the default popout chat
 					try {
 						if (document.getElementById("chatframe").getAttribute("src")) {
 							chrome.storage.sync.set({
@@ -259,9 +258,30 @@ async function replaceRumble() {
 	}, 500)
 }
 
+async function fixAutofocus() {
+	// ask the background script to notify us when the tab changes
+	chrome.runtime.sendMessage({ message: "notifyTabChange" })
+	var firstSwitch = true
+			// for the next second every millisecond scroll to the top of the page
+			var intervalId = setInterval(() => {
+				window.scrollTo(0, 0)
+			}, 1)
+			setTimeout(() => {
+				clearInterval(intervalId)
+			}, 1000)
+			firstSwitch = false
+		}
+	})
+}
+
 async function CHAT_REPLACER_9000() {
-	if (window.location.href.indexOf("youtube.com/watch") > -1) {
+	if (
+		window.location.href.indexOf("youtube.com/watch") > -1 ||
+		window.location.href.indexOf("youtube.com/live") > -1 ||
+		window.location.href.indexOf("youtube.com/destiny") > -1
+	) {
 		await replaceYoutube()
+		await fixAutofocus()
 	}
 	if (window.location.href.indexOf("twitch.tv") > -1) {
 		await replaceTwitch()
@@ -274,22 +294,7 @@ async function CHAT_REPLACER_9000() {
 	}
 }
 
-// save the last url
-var lastUrl = location.href
-
 // run the function on page load
 document.addEventListener("DOMContentLoaded", function () {
 	CHAT_REPLACER_9000()
 })
-
-// run the function on url change
-new MutationObserver(() => {
-	const url = location.href
-
-	if (url !== lastUrl) {
-		lastUrl = url
-		CHAT_REPLACER_9000()
-	}
-}).observe(document, { subtree: true, childList: true })
-
-CHAT_REPLACER_9000()
