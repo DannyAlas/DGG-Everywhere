@@ -9,6 +9,7 @@ function getOrigin(url) {
 		"*://*.rumble.com/*",
 		"*://*.destiny.gg/*",
 	]
+	console.log(url)
 	for (let origin of possibleOrigins) {
 		const regex = /\.([^/]+)\./
 		if (url.match(regex.exec(origin)[1])) {
@@ -69,11 +70,11 @@ async function doWeHavePermission(origin) {
 async function setCheckbox() {
 	let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
 	let origin = getOrigin(tab.url)
+	console.log(origin)
 	chrome.storage.sync.get(
 		[`checkbox-${getDomainFromOrigin(origin)}`],
 		async function (result) {
 			if (result[`checkbox-${getDomainFromOrigin(origin)}`] != null) {
-				console.log("setCheckbox", result)
 				await doWeHavePermission(origin).then((perms) => {
 					if (perms) {
 						document.getElementById("checkbox").checked =
@@ -101,42 +102,21 @@ init()
 
 checkbox.addEventListener("change", async (e) => {
 	if (e.target.checked) {
-		// FIXME:
-		// for some reason if we query tabs FIRST, to only request permssions
-		// for the current tab, FF gives us an error saying permissions can
-		// only be requested by user interaction (i think this is a stack trace bug)
-
-		// for now just request all permissions on load and then update the content
-		// script to only run on the current tab ¯\ (ツ) /¯
-		await chrome.permissions
-			.request({
-				origins: [
-					"*://*.youtube.com/*",
-					"*://*.twitch.tv/*",
-					"*://*.destiny.gg/*",
-					"*://*.kick.com/*",
-					"*://*.rumble.com/*",
-				],
-			})
-			.then(async (granted) => {
-				if (granted) {
-					let [tab] = await chrome.tabs.query({
-						active: true,
-						currentWindow: true,
-					})
-					let origin = getOrigin(tab.url)
-					if (origin == null) {
-						document.getElementById("checkbox").checked = false
-						return
-					}
-					await doWeHavePermission(origin).then(async (perms) => {
-						if (perms) {
-							let [tab] = await chrome.tabs.query({
-								active: true,
-								currentWindow: true,
-							})
-							let origins = await getSelectedOrigins()
+		// ensure the content script is registered
+		let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
+		let origin = getOrigin(tab.url)
+		if (origin == null) {
+			document.getElementById("checkbox").checked = false
+			return
+		}
+		await doWeHavePermission(origin).then(async (perms) => {
+			if (!perms) {
+				await chrome.permissions
+					.request({ origins: [origin] })
+					.then(async (granted) => {
+						if (granted) {
 							// update the content script to the new permissions
+							let origins = await getSelectedOrigins()
 							await chrome.scripting.updateContentScripts([
 								{
 									id: "chat-injector",
@@ -150,25 +130,9 @@ checkbox.addEventListener("change", async (e) => {
 								target: { tabId: tab.id },
 								files: ["src/content.js"],
 							})
-						} else {
-							document.getElementById("checkbox").checked = false
 						}
 					})
-				}
-			})
-
-		let [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
-		let origin = getOrigin(tab.url)
-		if (origin == null) {
-			document.getElementById("checkbox").checked = false
-			return
-		}
-		await doWeHavePermission(origin).then(async (perms) => {
-			if (perms) {
-				let [tab] = await chrome.tabs.query({
-					active: true,
-					currentWindow: true,
-				})
+			} else if (perms) {
 				let origins = await getSelectedOrigins()
 				// update the content script to the new permissions
 				await chrome.scripting.updateContentScripts([
@@ -184,8 +148,6 @@ checkbox.addEventListener("change", async (e) => {
 					target: { tabId: tab.id },
 					files: ["src/content.js"],
 				})
-			} else {
-				document.getElementById("checkbox").checked = false
 			}
 		})
 	} else if (!e.target.checked) {
@@ -208,7 +170,7 @@ checkbox.addEventListener("change", async (e) => {
 
 				chrome.scripting.executeScript({
 					target: { tabId: tab.id },
-					func: async () => {
+					function: async () => {
 						console.log(
 							"%c[DGG] %cPEEPO POOFING DGG CHAT AWAY",
 							"color: #538CC6",
@@ -319,4 +281,27 @@ checkbox.addEventListener("change", async (e) => {
 	}
 })
 
-// no fun with FF :(
+// you gotta have some fun... right? (also im too artistically inept to make this extenion look nice)
+chrome.runtime.sendMessage(
+	{
+		backgroundScriptQuery: "getEmotes",
+		url: "https://cdn.destiny.gg/emotes/emotes.json",
+	},
+	function (response) {
+		var randomIndex = Math.floor(Math.random() * response.length)
+		// if the emote width is more then 3 times the height, get a new emote
+		while (
+			response[randomIndex].image[0].width >
+			response[randomIndex].image[0].height * 3
+		) {
+			randomIndex = Math.floor(Math.random() * response.length)
+		}
+		var emote = document.createElement("img")
+		emote.setAttribute("src", response[randomIndex].image[0].url)
+		emote.setAttribute(
+			"style",
+			"position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 100%; width: 100%; object-fit: contain; z-index: -1; opacity: 0.5;"
+		)
+		document.body.appendChild(emote)
+	}
+)
