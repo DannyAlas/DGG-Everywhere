@@ -1,3 +1,15 @@
+async function customFetch(url, options) {
+	try {
+		const response = await fetch(url, options)
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`)
+		}
+		return await response.json() // or .text(), depending on the response type
+	} catch (error) {
+		console.error("Fetch error:", error)
+	}
+}
+
 // LISTENERS
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request.backgroundScriptQuery == "getEmotes") {
@@ -24,5 +36,16 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 			}
 			sendResponse({ message: "Aknowledged" })
 		})
+	}
+})
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+	if (request.action === "performFetch") {
+		customFetch(request.url, request.options)
+			.then((data) => sendResponse({ status: "success", data: data }))
+			.catch((error) =>
+				sendResponse({ status: "error", message: error.message })
+			)
+		return true // Indicates you wish to send a response asynchronously
 	}
 })

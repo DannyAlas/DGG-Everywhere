@@ -296,7 +296,4 @@ async function CHAT_REPLACER_9000() {
 	}
 }
 
-// run the function on page load
-document.addEventListener("DOMContentLoaded", function () {
-	CHAT_REPLACER_9000()
-})
+CHAT_REPLACER_9000()
